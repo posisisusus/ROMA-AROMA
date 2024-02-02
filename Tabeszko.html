@@ -1,1 +1,49 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Óra Játék</title>
+    <style>
+        body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    #clock {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    </style>
+</head>
+<body>
+    <h1>Óra játék</h1>
+    <p>Próbáld kitalálni hány óra van!</p>
+    <div id="clock">00:00:00</div>
+    <button onclick="startgame()">Indítás</button>
 
+<script>
+    let timer;
+
+    function startgame() {
+        clearInterval(timer);
+        timer = setInterval(updateClock,1000);
+        updateClock();
+    }
+
+    function updateClock() {
+        let currentTime = new Date();
+        let hours = currentTime.getHours();
+        let minutes = currentTime.getMinutes();
+        let seconds = currentTime.getSeconds();
+        hours = (hours <10 ? "0" : "") + hours;
+        minutes = (minutes < 10 ? "0" : "") + minutes;
+        seconds;
+        let timeString = hours + ":" + minutes + ":" + seconds;
+
+        document.getElementById("clock").textContent = timeString;
+    }
+</script>
+    
+</body>
+</html>
